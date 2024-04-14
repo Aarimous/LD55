@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://cyrsfu54t2de1"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_2e4fp"]
+[ext_resource type="PackedScene" uid="uid://bv03t8pmsivtk" path="res://Based.tscn" id="2_g2ida"]
+[ext_resource type="Resource" uid="uid://hdluo5ne00ra" path="res://MainSpawnDeck.tres" id="4_qssmc"]
+[ext_resource type="Texture2D" uid="uid://ylwoj8l2o0rm" path="res://Art/Large_CIRCLE.png" id="4_ya2xg"]
+[ext_resource type="PackedScene" uid="uid://d1l2i2o0yq4hb" path="res://Soul.tscn" id="5_3mt2n"]
+[ext_resource type="PackedScene" uid="uid://dfn7uc0v43mnh" path="res://SpawnPoint.tscn" id="6_1vqjx"]
+[ext_resource type="Theme" uid="uid://c5lirrb4nrdb0" path="res://Theme.tres" id="7_eb7tn"]
+[ext_resource type="PackedScene" uid="uid://c775acu4g7wdd" path="res://SummoningAbility.tscn" id="8_q1wat"]
+[ext_resource type="Resource" uid="uid://b3pamuhpjt7j2" path="res://Entity Data/Small_Devil.tres" id="9_7k0yr"]
+[ext_resource type="Resource" uid="uid://cm2iie4jupx4o" path="res://Entity Data/Medium_Devil.tres" id="10_ppsua"]
+[ext_resource type="Resource" uid="uid://b7ws61u8ueva5" path="res://Entity Data/Large_Devil.tres" id="11_y5vuk"]
+[ext_resource type="Resource" uid="uid://5wo4sufifgys" path="res://Entity Data/Tiny_Devil.tres" id="12_nhpik"]
+[ext_resource type="Script" path="res://souls_tracker.gd" id="13_v4sr1"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2e4fp")
+soul_packed = ExtResource("5_3mt2n")
+spawn_deck = ExtResource("4_qssmc")
+metadata/_edit_horizontal_guides_ = [-184.0]
+metadata/_edit_vertical_guides_ = [-889.0]
+
+[node name="SummoningArea" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0392157)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_ya2xg")
+
+[node name="Based" parent="." instance=ExtResource("2_g2ida")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+
+[node name="Enemy Units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player Units" type="Node2D" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointTop" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(0, -666)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointLeft" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(-1111, -42)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointRight" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(1111, -42)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointLeftBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(-666, 666)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointRightBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(666, 666)
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.5
+offset_top = -178.0
+offset_right = 222.5
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="Abilities" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_eb7tn")
+theme_override_constants/separation = 15
+
+[node name="Small" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+layout_mode = 2
+entity_data = ExtResource("9_7k0yr")
+
+[node name="Medium" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+layout_mode = 2
+key = "W"
+entity_data = ExtResource("10_ppsua")
+
+[node name="Large" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+layout_mode = 2
+key = "E"
+entity_data = ExtResource("11_y5vuk")
+
+[node name="Tiny" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+layout_mode = 2
+key = "R"
+entity_data = ExtResource("12_nhpik")
+
+[node name="Souls Tracker" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("13_v4sr1")
+
+[node name="Souls Label" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+layout_mode = 2
+text = "Souls:"
+
+[node name="Souls Amount" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "999
+"
+
+[node name="_" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "/"
+
+[node name="Souls Max" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "999
+"

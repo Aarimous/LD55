@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwxsqo3ra2u7e"]
+
+[ext_resource type="Script" path="res://PlayerSummoner.gd" id="1_sh1i7"]
+[ext_resource type="Texture2D" uid="uid://22nhewtd1cht" path="res://Art/Penta_Base_1.png" id="2_r6dk4"]
+[ext_resource type="PackedScene" uid="uid://clps0301cf1u2" path="res://Player.tscn" id="3_sqth4"]
+[ext_resource type="Texture2D" uid="uid://15e1dki1vh0q" path="res://Art/Penta_Base_3.png" id="4_ltcfi"]
+
+[node name="PlayerSummoner" type="Node2D"]
+script = ExtResource("1_sh1i7")
+summoning_cursor = ExtResource("2_r6dk4")
+player_unit_packed = ExtResource("3_sqth4")
+
+[node name="SummonerIcon" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.392157)
+rotation = 0.00598463
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ltcfi")

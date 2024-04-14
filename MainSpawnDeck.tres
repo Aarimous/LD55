@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="SpawnDeck" load_steps=8 format=3 uid="uid://hdluo5ne00ra"]
+
+[ext_resource type="Script" path="res://SpawnDeck.gd" id="1_fv7sl"]
+[ext_resource type="Script" path="res://SpawnCard.gd" id="1_pub4a"]
+
+[sub_resource type="Resource" id="Resource_4gvbv"]
+script = ExtResource("1_pub4a")
+cost = 1
+spawn_types = Array[int]([])
+spawn_amounts = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_7oww8"]
+script = ExtResource("1_pub4a")
+cost = 2
+spawn_types = Array[int]([])
+spawn_amounts = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_cxo0q"]
+script = ExtResource("1_pub4a")
+cost = 3
+spawn_types = Array[int]([])
+spawn_amounts = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_nycj3"]
+script = ExtResource("1_pub4a")
+cost = 4
+spawn_types = Array[int]([])
+spawn_amounts = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_trs8d"]
+script = ExtResource("1_pub4a")
+cost = 5
+spawn_types = Array[int]([])
+spawn_amounts = Array[int]([])
+
+[resource]
+script = ExtResource("1_fv7sl")
+deck = Array[ExtResource("1_pub4a")]([SubResource("Resource_4gvbv"), SubResource("Resource_7oww8"), SubResource("Resource_cxo0q"), SubResource("Resource_nycj3"), SubResource("Resource_trs8d")])

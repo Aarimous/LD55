@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://c775acu4g7wdd"]
+
+[ext_resource type="Texture2D" uid="uid://22nhewtd1cht" path="res://Art/Penta_Base_1.png" id="1_bfq5i"]
+[ext_resource type="Script" path="res://SummoningAbility.gd" id="1_ujkfq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbm7e"]
+bg_color = Color(0.407843, 0.219608, 0.423529, 1)
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.24, 0.13, 0.25, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SummoningAbility" type="PanelContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(100, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bbm7e")
+script = ExtResource("1_ujkfq")
+cost = null
+key = null
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="Key_Text" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 32
+text = "Q"
+
+[node name="Cost_Text" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+modulate = Color(0.635294, 0.14902, 0.2, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 32
+text = "20"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_bfq5i")
+expand_mode = 5

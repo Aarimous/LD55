@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvwsk57j3blh0"]
+
+[ext_resource type="Script" path="res://HealthComp.gd" id="1_ahff0"]
+
+[node name="HealthComp" type="Node"]
+script = ExtResource("1_ahff0")
+max_health = 1000.0
+health_regen_per_second = 1.0

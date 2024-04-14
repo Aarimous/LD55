@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EntityData" load_steps=3 format=3 uid="uid://cm2iie4jupx4o"]
+
+[ext_resource type="Texture2D" uid="uid://ddqw5udoxsep0" path="res://Art/icon.svg" id="1_idfhf"]
+[ext_resource type="Script" path="res://EntityData.gd" id="1_yypii"]
+
+[resource]
+script = ExtResource("1_yypii")
+type = 2
+icon = ExtResource("1_idfhf")
+max_health = 50
+soul_cost = 20
+spawn_amount = 1
+unit_damage = 20
+based_damage = 20
+attack_speed = 0.75
+speed = 35
+wander_speed = 20
+avoid_distance = 40
