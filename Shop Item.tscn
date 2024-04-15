@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=3 uid="uid://dht3oplje1kug"]
+
+[ext_resource type="Theme" uid="uid://c5lirrb4nrdb0" path="res://Theme.tres" id="1_1qh3b"]
+[ext_resource type="Script" path="res://ShopItem.gd" id="1_6xbs3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8dh8w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Shop Item" type="PanelContainer"]
+auto_translate_mode = 1
+size_flags_horizontal = 3
+theme = ExtResource("1_1qh3b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8dh8w")
+script = ExtResource("1_6xbs3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "Summon 1 
+More Devil"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+alignment = 1
+
+[node name="Curent" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Current:
+"
+horizontal_alignment = 1
+
+[node name="Current Amount" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "999"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+alignment = 1
+
+[node name="Cost" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Souls Cost:
+"
+horizontal_alignment = 1
+
+[node name="Cost Amount" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "999"
+
+[node name="Purchase" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Purchase"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Purchase" to="." method="_on_purchase_button_up"]

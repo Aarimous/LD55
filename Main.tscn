@@ -1,129 +1,413 @@
-[gd_scene load_steps=14 format=3 uid="uid://cyrsfu54t2de1"]
+[gd_scene load_steps=17 format=3 uid="uid://cyrsfu54t2de1"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_2e4fp"]
 [ext_resource type="PackedScene" uid="uid://bv03t8pmsivtk" path="res://Based.tscn" id="2_g2ida"]
 [ext_resource type="Resource" uid="uid://hdluo5ne00ra" path="res://MainSpawnDeck.tres" id="4_qssmc"]
+[ext_resource type="Script" path="res://next_s_hop_tracker.gd" id="4_tt2q3"]
 [ext_resource type="Texture2D" uid="uid://ylwoj8l2o0rm" path="res://Art/Large_CIRCLE.png" id="4_ya2xg"]
-[ext_resource type="PackedScene" uid="uid://d1l2i2o0yq4hb" path="res://Soul.tscn" id="5_3mt2n"]
 [ext_resource type="PackedScene" uid="uid://dfn7uc0v43mnh" path="res://SpawnPoint.tscn" id="6_1vqjx"]
 [ext_resource type="Theme" uid="uid://c5lirrb4nrdb0" path="res://Theme.tres" id="7_eb7tn"]
 [ext_resource type="PackedScene" uid="uid://c775acu4g7wdd" path="res://SummoningAbility.tscn" id="8_q1wat"]
-[ext_resource type="Resource" uid="uid://b3pamuhpjt7j2" path="res://Entity Data/Small_Devil.tres" id="9_7k0yr"]
-[ext_resource type="Resource" uid="uid://cm2iie4jupx4o" path="res://Entity Data/Medium_Devil.tres" id="10_ppsua"]
-[ext_resource type="Resource" uid="uid://b7ws61u8ueva5" path="res://Entity Data/Large_Devil.tres" id="11_y5vuk"]
-[ext_resource type="Resource" uid="uid://5wo4sufifgys" path="res://Entity Data/Tiny_Devil.tres" id="12_nhpik"]
+[ext_resource type="Script" path="res://volume_setting.gd" id="9_2igtx"]
+[ext_resource type="PackedScene" uid="uid://d3nhrly8a2sbh" path="res://Shop.tscn" id="11_n0q4j"]
+[ext_resource type="Script" path="res://Health Tracker.gd" id="11_vhaan"]
+[ext_resource type="PackedScene" uid="uid://d1l2i2o0yq4hb" path="res://Soul.tscn" id="13_iaisd"]
+[ext_resource type="PackedScene" uid="uid://d1l2i2o0yq4hb" path="res://Soul.tscn" id="13_sm4a4"]
 [ext_resource type="Script" path="res://souls_tracker.gd" id="13_v4sr1"]
+[ext_resource type="PackedScene" uid="uid://ctqb1m0aktr7o" path="res://Tutorial_Text.tscn" id="13_y8nq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbbke"]
+bg_color = Color(0.407843, 0.219608, 0.423529, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_2e4fp")
-soul_packed = ExtResource("5_3mt2n")
+soul_packed = ExtResource("13_iaisd")
 spawn_deck = ExtResource("4_qssmc")
 metadata/_edit_horizontal_guides_ = [-184.0]
 metadata/_edit_vertical_guides_ = [-889.0]
 
-[node name="SummoningArea" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.0392157)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_ya2xg")
-
-[node name="Based" parent="." instance=ExtResource("2_g2ida")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-process_callback = 0
-
-[node name="Enemy Units" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="Player Units" type="Node2D" parent="."]
-
-[node name="SpawnPoints" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-
-[node name="SpawnPointTop" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
-position = Vector2(0, -666)
-metadata/_edit_lock_ = true
-
-[node name="SpawnPointLeft" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
-position = Vector2(-1111, -42)
-metadata/_edit_lock_ = true
-
-[node name="SpawnPointRight" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
-position = Vector2(1111, -42)
-metadata/_edit_lock_ = true
-
-[node name="SpawnPointLeftBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
-position = Vector2(-666, 666)
-metadata/_edit_lock_ = true
-
-[node name="SpawnPointRightBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
-position = Vector2(666, 666)
-metadata/_edit_lock_ = true
-
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="Next SHop Tracker" type="HBoxContainer" parent="UI"]
+auto_translate_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -367.5
+offset_right = 367.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme = ExtResource("7_eb7tn")
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("4_tt2q3")
+
+[node name="Next Shop" type="Label" parent="UI/Next SHop Tracker"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Upgrade Shop In:"
+
+[node name="Next Shop Time" type="Label" parent="UI/Next SHop Tracker"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "999
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -23.0
+offset_right = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbbke")
+
+[node name="Volume_Setting" type="HBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+script = ExtResource("9_2igtx")
+
+[node name="Label" type="Label" parent="UI/PanelContainer/Volume_Setting"]
+layout_mode = 2
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="UI/PanelContainer/Volume_Setting"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Bottom Hot Bar" type="VBoxContainer" parent="UI"]
+process_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -222.5
-offset_top = -178.0
+offset_top = -134.0
 offset_right = 222.5
-offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("7_eb7tn")
 theme_override_constants/separation = 5
 
-[node name="Abilities" type="HBoxContainer" parent="UI/VBoxContainer"]
+[node name="Abilities" type="HBoxContainer" parent="UI/Bottom Hot Bar"]
 layout_mode = 2
 theme = ExtResource("7_eb7tn")
 theme_override_constants/separation = 15
+alignment = 1
 
-[node name="Small" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+[node name="Summon Minion" parent="UI/Bottom Hot Bar/Abilities" instance=ExtResource("8_q1wat")]
 layout_mode = 2
-entity_data = ExtResource("9_7k0yr")
 
-[node name="Medium" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+[node name="Summon Ritual" parent="UI/Bottom Hot Bar/Abilities" instance=ExtResource("8_q1wat")]
 layout_mode = 2
 key = "W"
-entity_data = ExtResource("10_ppsua")
+type = 1
 
-[node name="Large" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+[node name="Heal Based" parent="UI/Bottom Hot Bar/Abilities" instance=ExtResource("8_q1wat")]
 layout_mode = 2
 key = "E"
-entity_data = ExtResource("11_y5vuk")
+type = 2
 
-[node name="Tiny" parent="UI/VBoxContainer/Abilities" instance=ExtResource("8_q1wat")]
+[node name="Win Con" parent="UI/Bottom Hot Bar/Abilities" instance=ExtResource("8_q1wat")]
 layout_mode = 2
 key = "R"
-entity_data = ExtResource("12_nhpik")
+type = 3
 
-[node name="Souls Tracker" type="HBoxContainer" parent="UI/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Bottom Hot Bar"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Souls Tracker" type="HBoxContainer" parent="UI/Bottom Hot Bar/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 1
 script = ExtResource("13_v4sr1")
 
-[node name="Souls Label" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+[node name="Souls Label" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Souls Tracker"]
 layout_mode = 2
-text = "Souls:"
+text = "Souls Pool:"
 
-[node name="Souls Amount" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+[node name="Souls Amount" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Souls Tracker"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
 text = "999
 "
 
-[node name="_" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+[node name="_" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Souls Tracker"]
 auto_translate_mode = 1
 layout_mode = 2
 text = "/"
 
-[node name="Souls Max" type="Label" parent="UI/VBoxContainer/Souls Tracker"]
+[node name="Souls Max" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Souls Tracker"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
 text = "999
 "
+
+[node name="Health Tracker" type="HBoxContainer" parent="UI/Bottom Hot Bar/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+script = ExtResource("11_vhaan")
+
+[node name="Health Label" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Health Tracker"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Pentagram Health:"
+
+[node name="Health Amount" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Health Tracker"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "999
+"
+
+[node name="_" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Health Tracker"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "/"
+
+[node name="Health Max" type="Label" parent="UI/Bottom Hot Bar/HBoxContainer/Health Tracker"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+text = "999
+"
+
+[node name="Shop" parent="UI" instance=ExtResource("11_n0q4j")]
+unique_name_in_owner = true
+visible = false
+offset_left = -534.0
+offset_top = -310.5
+offset_right = 534.0
+offset_bottom = 310.5
+
+[node name="Game Over Screen" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_eb7tn")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Game Over Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+metadata/_edit_lock_ = true
+
+[node name="Game Over Text" type="Label" parent="UI/Game Over Screen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_right = 34.0
+offset_bottom = 253.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 256
+text = "VICTORY"
+
+[node name="Play Again" type="Label" parent="UI/Game Over Screen"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1157.0
+offset_top = 275.0
+offset_right = 1136.0
+offset_bottom = 528.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Resummon the Itch.io page to Play Again..
+lol ran out of time for new game logic ;)"
+horizontal_alignment = 1
+
+[node name="SummoningArea" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0392157)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_ya2xg")
+
+[node name="Based" parent="." instance=ExtResource("2_g2ida")]
+scale = Vector2(0.33, 0.33)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+
+[node name="Soul3" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(462, -308)
+
+[node name="Soul" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(272, -301)
+
+[node name="Soul2" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(275, -210)
+
+[node name="Soul4" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-528, 117)
+
+[node name="Soul5" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(410, -204)
+
+[node name="Soul6" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-400, 256)
+
+[node name="Soul7" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(513, -244)
+
+[node name="Soul8" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(297, 316)
+
+[node name="Soul9" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(492, -271)
+
+[node name="Soul10" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(377, -311)
+
+[node name="Soul11" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-506, 228)
+
+[node name="Soul13" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-445, -255)
+
+[node name="Soul14" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(310, -309)
+
+[node name="Soul15" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-512, -304)
+
+[node name="Soul16" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(197, -295)
+
+[node name="Soul17" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(479, 115)
+
+[node name="Soul18" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-233, 295)
+
+[node name="Soul19" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-570, -179)
+
+[node name="Soul20" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(428, -165)
+
+[node name="Soul21" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(322, -193)
+
+[node name="Soul22" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(-590, -294)
+
+[node name="Soul23" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(507, -209)
+
+[node name="Soul24" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(313, -159)
+
+[node name="Soul12" parent="." instance=ExtResource("13_sm4a4")]
+position = Vector2(206, -245)
+
+[node name="Enemy Units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player Units" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointTop" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(0, -325)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointLeft" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(-570, -42)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointRight" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(570, -42)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointLeftBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(-450, 325)
+metadata/_edit_lock_ = true
+
+[node name="SpawnPointRightBottom" parent="SpawnPoints" instance=ExtResource("6_1vqjx")]
+position = Vector2(450, 325)
+metadata/_edit_lock_ = true
+
+[node name="ShopTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 15.0
+autostart = true
+
+[node name="TutorialText" parent="." instance=ExtResource("13_y8nq1")]
+offset_left = 138.0
+offset_top = -292.0
+offset_right = 554.0
+offset_bottom = -231.0
+text = "Tip: collect souls by 
+mousing over them"
+show_time = 0.0
+
+[node name="TutorialText2" parent="." instance=ExtResource("13_y8nq1")]
+auto_translate_mode = 1
+offset_left = -391.0
+offset_top = -336.0
+offset_right = -32.0
+offset_bottom = -275.0
+text = "Tip: Save some souls
+ for the shop!"
+show_time = 5.0
+
+[node name="TutorialText3" parent="." instance=ExtResource("13_y8nq1")]
+auto_translate_mode = 1
+offset_left = -558.0
+offset_top = 3.0
+offset_right = -199.0
+offset_bottom = 64.0
+text = "Tip: Click Q,W,E,R
+to Use Ability"
+show_time = 10.0
+
+[node name="TutorialText4" parent="." instance=ExtResource("13_y8nq1")]
+auto_translate_mode = 1
+offset_left = 219.0
+offset_top = 5.0
+offset_right = 578.0
+offset_bottom = 98.0
+text = "Tip: Get 666  souls at once
+to \"Win\" the game (R ability)
+
+"
+show_time = 45.0
+
+[connection signal="value_changed" from="UI/PanelContainer/Volume_Setting/HSlider" to="UI/PanelContainer/Volume_Setting" method="_on_h_slider_value_changed"]
+[connection signal="close_shop" from="UI/Shop" to="." method="_on_shop_close_shop"]
+[connection signal="timeout" from="ShopTimer" to="." method="_on_shop_timer_timeout"]

@@ -2,23 +2,22 @@ extends Node
 class_name HealthComp
 
 
-@export var max_health = 100.0
-@export var current_health = 0.0
+@export var max_health : float = 100.0
+@export var current_health  : float = 0.0
 @export var health_regen_per_second = 0.0
 
 signal death_event()
 signal health_changed(new_value, max_value)
 
 func _ready():
-	current_health = max_health
+	pass
+	#current_health = max_health
 		
 func init(_max_health):
 	max_health = _max_health
 	current_health = max_health
 
-func _process(delta: float) -> void:
-	if health_regen_per_second != 0:
-		change_health(health_regen_per_second * delta)
+
 	
 	
 func take_damage(damage_amount):

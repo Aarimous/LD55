@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://c775acu4g7wdd"]
+[gd_scene load_steps=3 format=3 uid="uid://c775acu4g7wdd"]
 
-[ext_resource type="Texture2D" uid="uid://22nhewtd1cht" path="res://Art/Penta_Base_1.png" id="1_bfq5i"]
 [ext_resource type="Script" path="res://SummoningAbility.gd" id="1_ujkfq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bbm7e"]
@@ -15,7 +14,9 @@ corner_radius_bottom_left = 5
 
 [node name="SummoningAbility" type="PanelContainer"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(100, 0)
+offset_right = 60.0
+offset_bottom = 118.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bbm7e")
 script = ExtResource("1_ujkfq")
 key = "Q"
@@ -42,22 +43,39 @@ auto_translate_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 20
 text = "Q"
 
 [node name="Cost_Text" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 1
+modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 20
 text = "20"
 horizontal_alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 auto_translate_mode = 1
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("1_bfq5i")
 expand_mode = 5
+
+[node name="Desc" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "TEST HERE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Desc2" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "TEST HERE"
+horizontal_alignment = 1
+autowrap_mode = 2

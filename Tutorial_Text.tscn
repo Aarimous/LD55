@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqb1m0aktr7o"]
+
+[ext_resource type="Theme" uid="uid://c5lirrb4nrdb0" path="res://Theme.tres" id="1_t0myr"]
+[ext_resource type="Script" path="res://tutorial_text.gd" id="2_q4vs8"]
+
+[node name="TutorialText" type="Label"]
+modulate = Color(0.968627, 0.462745, 0.133333, 1)
+offset_right = 118.0
+offset_bottom = 19.0
+theme = ExtResource("1_t0myr")
+theme_override_font_sizes/font_size = 24
+text = "Tip: collect souls by mousing over them"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_q4vs8")

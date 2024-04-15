@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://desqp4278lwk7"
+path="res://.godot/imported/angel_take_damage_4.mp3-c88f1a9b5039f462c2f3c591674b21e3.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/angel_take_damage_4.mp3"
+dest_files=["res://.godot/imported/angel_take_damage_4.mp3-c88f1a9b5039f462c2f3c591674b21e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

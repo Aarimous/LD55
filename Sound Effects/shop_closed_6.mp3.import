@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://damj1aw6mfwwh"
+path="res://.godot/imported/shop_closed_6.mp3-cf635a60194570c6d4b28dc47d9c5812.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/shop_closed_6.mp3"
+dest_files=["res://.godot/imported/shop_closed_6.mp3-cf635a60194570c6d4b28dc47d9c5812.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

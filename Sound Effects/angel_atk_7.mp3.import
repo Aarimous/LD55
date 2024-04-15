@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co1ot8ofoffvc"
+path="res://.godot/imported/angel_atk_7.mp3-fda34c47afb3b5c7b1462a00a2f76d94.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/angel_atk_7.mp3"
+dest_files=["res://.godot/imported/angel_atk_7.mp3-fda34c47afb3b5c7b1462a00a2f76d94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df5t1r7g0m6fh"
+path="res://.godot/imported/devil_die_2.mp3-9c052bab5065dc10dd4f3347f05d3223.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/devil_die_2.mp3"
+dest_files=["res://.godot/imported/devil_die_2.mp3-9c052bab5065dc10dd4f3347f05d3223.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

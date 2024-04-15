@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qclyb8u5bsvo"
+path="res://.godot/imported/Ayy Yo.mp3-ad29bcc75b8c987699409304ab4e0ef7.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/Ayy Yo.mp3"
+dest_files=["res://.godot/imported/Ayy Yo.mp3-ad29bcc75b8c987699409304ab4e0ef7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

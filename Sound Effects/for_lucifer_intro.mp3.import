@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dabcst56u3efe"
+path="res://.godot/imported/for_lucifer_intro.mp3-2232e7db2a79be58abde3ee9cab3e689.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/for_lucifer_intro.mp3"
+dest_files=["res://.godot/imported/for_lucifer_intro.mp3-2232e7db2a79be58abde3ee9cab3e689.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

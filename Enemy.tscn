@@ -1,32 +1,253 @@
-[gd_scene load_steps=6 format=3 uid="uid://d18pwloi3bj1w"]
+[gd_scene load_steps=12 format=3 uid="uid://d18pwloi3bj1w"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_yu01r"]
-[ext_resource type="Texture2D" uid="uid://dd3ii4af8n2jh" path="res://Art/Small_Circle.png" id="3_mrk73"]
+[ext_resource type="Texture2D" uid="uid://bhlimqvdti26u" path="res://Art/Body.png" id="3_k4de0"]
 [ext_resource type="PackedScene" uid="uid://cvwsk57j3blh0" path="res://HealthComp.tscn" id="3_vqga2"]
+[ext_resource type="Texture2D" uid="uid://clbvoyf6fvq4" path="res://Art/Wing.png" id="4_t2635"]
+[ext_resource type="Texture2D" uid="uid://cm6vj3jnys8ay" path="res://Art/Sword.png" id="5_nukaf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yi0pr"]
-radius = 21.3688
+radius = 10.253
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iutvp"]
-radius = 100.0
+radius = 50.0
+
+[sub_resource type="Animation" id="Animation_t44ig"]
+resource_name = "Walk"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArtPivot/RightWingPivot:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.174533, -0.349066]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArtPivot/LeftWingPivot:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.174533, 0.349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArtPivot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArtPivot/SwordPivot/Sword:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArtPivot/SwordPivot/Sword:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArtPivot/SwordPivot:rotation")
+tracks/5/interp = 3
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_t6djg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArtPivot/RightWingPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArtPivot/LeftWingPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArtPivot:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArtPivot/SwordPivot/Sword:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArtPivot/SwordPivot/Sword:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, -3)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArtPivot/SwordPivot:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vui0u"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArtPivot:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArtPivot/LeftWingPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArtPivot/RightWingPivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArtPivot/SwordPivot/Sword:rotation")
+tracks/3/interp = 3
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArtPivot/SwordPivot/Sword:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(17, -10), Vector2(17, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_66ffh"]
+_data = {
+"Attack": SubResource("Animation_vui0u"),
+"RESET": SubResource("Animation_t6djg"),
+"Walk": SubResource("Animation_t44ig")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_yu01r")
-max_health = 50
-unit_damage = 30
-based_damage = 10
+max_health = 42
+unit_damage = 9
+based_damage = 50
 SPEED = 20
-avoid_distance = 50
+avoid_distance = 25
 
 [node name="HealthComp" parent="." instance=ExtResource("3_vqga2")]
 max_health = 50.0
 current_health = 50.0
-
-[node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.172549, 0.909804, 0.960784, 1)
-texture = ExtResource("3_mrk73")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.25, -0.25)
@@ -39,5 +260,44 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AgroRange"]
 shape = SubResource("CircleShape2D_iutvp")
+
+[node name="ArtPivot" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="ArtPivot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_k4de0")
+
+[node name="LeftWingPivot" type="Node2D" parent="ArtPivot"]
+
+[node name="Wing" type="Sprite2D" parent="ArtPivot/LeftWingPivot"]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_t2635")
+
+[node name="RightWingPivot" type="Node2D" parent="ArtPivot"]
+
+[node name="Wing" type="Sprite2D" parent="ArtPivot/RightWingPivot"]
+modulate = Color(1, 1, 1, 0.392157)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_t2635")
+flip_h = true
+
+[node name="SwordPivot" type="Node2D" parent="ArtPivot"]
+unique_name_in_owner = true
+z_index = 2
+
+[node name="Sword" type="Sprite2D" parent="ArtPivot/SwordPivot"]
+position = Vector2(17, -3)
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_nukaf")
+offset = Vector2(0, -10)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_66ffh")
+}
+autoplay = "Walk"
 
 [connection signal="body_entered" from="AgroRange" to="." method="_on_agro_range_body_entered"]

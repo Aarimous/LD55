@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7speduct4y2g"
+path="res://.godot/imported/devil attack 1.mp3-d72feef3f5a8b0b8981feb4376c90dea.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/devil attack 1.mp3"
+dest_files=["res://.godot/imported/devil attack 1.mp3-d72feef3f5a8b0b8981feb4376c90dea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

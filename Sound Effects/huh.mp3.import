@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da3e62hl06yuk"
+path="res://.godot/imported/huh.mp3-caeea6125b6807160c73de6d6df5baf4.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/huh.mp3"
+dest_files=["res://.godot/imported/huh.mp3-caeea6125b6807160c73de6d6df5baf4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

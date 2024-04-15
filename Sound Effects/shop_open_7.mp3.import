@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwrglergy1y5s"
+path="res://.godot/imported/shop_open_7.mp3-e10279a868173467346538e01b5d2df9.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/shop_open_7.mp3"
+dest_files=["res://.godot/imported/shop_open_7.mp3-e10279a868173467346538e01b5d2df9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

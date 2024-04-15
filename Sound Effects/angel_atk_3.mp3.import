@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bggcayaje3e68"
+path="res://.godot/imported/angel_atk_3.mp3-fbdabab4f431ddfcabb96475fbbed8e8.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/angel_atk_3.mp3"
+dest_files=["res://.godot/imported/angel_atk_3.mp3-fbdabab4f431ddfcabb96475fbbed8e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

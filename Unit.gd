@@ -29,17 +29,8 @@ var entity_data : EntityData
 var change_direction_timer = 0
 var update_velocity = .5
 
-func init(_entity_data : EntityData):
-	entity_data = _entity_data
-	max_health = entity_data.max_health
-	unit_damage = entity_data.unit_damage
-	based_damage = entity_data.based_damage
-	attack_speed = entity_data.attack_speed
-	SPEED = entity_data.speed
-	WANDER_SPEED = entity_data.wander_speed
-	avoid_distance = entity_data.avoid_distance
-	
-	stale_check_timer = Game.rng.randf_range(0, 3)
+func init():
+	stale_check_timer = Game.rng.randf_range(0.1, .3)
 	update_velocity = .1
 	calc_velocity()
 	cust_init()
@@ -49,6 +40,9 @@ func cust_init():
 	
 	pass
 
+
+func state_changed():
+	pass
 
 func _physics_process(delta: float) -> void:
 	if attack_cooldown > 0:
@@ -60,16 +54,17 @@ func _physics_process(delta: float) -> void:
 		
 	if stale_check_timer > 0:
 		stale_check_timer -= delta
-		if stale_check_timer <= 0:
+		if stale_check_timer <= 0 and target == null:
 			find_target(true)
+			stale_check_timer = Game.rng.randf_range(2.5, 5.0)
 			
 	if update_velocity > 0:
 		update_velocity -= delta
 		if update_velocity <= 0:
-			update_velocity = .5
+			update_velocity = .25
 			calc_velocity()
 
-	if target == null or is_instance_valid(target) == false or target.is_dying == true:
+	if target != null and (is_instance_valid(target) == false or target.is_dying == true):
 		find_target()
 		
 	
@@ -79,7 +74,8 @@ func _physics_process(delta: float) -> void:
 			var collison = move_and_collide(velocity * delta)
 			if collison != null:
 				var colliding_body = collison.get_collider()
-				if colliding_body == target:
+				if colliding_body != null:
+					target = colliding_body
 					attack_target()	
 					
 		Game.UNIT_STATES.ATTACKING_TARGET:

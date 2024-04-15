@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3nhrly8a2sbh"]
+
+[ext_resource type="Theme" uid="uid://c5lirrb4nrdb0" path="res://Theme.tres" id="1_r1psq"]
+[ext_resource type="Script" path="res://Shop.gd" id="2_qhw4s"]
+[ext_resource type="PackedScene" uid="uid://dht3oplje1kug" path="res://Shop Item.tscn" id="3_dwuvp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpj1w"]
+bg_color = Color(0, 0, 0, 0.588235)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Shop" type="PanelContainer"]
+process_mode = 3
+auto_translate_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -346.5
+offset_right = 800.0
+offset_bottom = 346.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = ExtResource("1_r1psq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hpj1w")
+script = ExtResource("2_qhw4s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "SATAN'S CORONER STORE"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 5
+
+[node name="Blood Gained Per Second" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+1 Souls Per Second"
+
+[node name="Enemy Blood Dropped" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+1 Souls Dropped"
+
+[node name="Summon more Devils" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+1 Summon Devil"
+
+[node name="Devil Damage" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+5 Devil Damage"
+
+[node name="Devil Heal" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+5 Devil Health"
+
+[node name="Devil Speed" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+10 Devil Speed"
+
+[node name="Devil Attack Speed" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+25% Devil Attack Speed"
+
+[node name="Ritual Duration" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+5  Ritual Duration"
+
+[node name="Ritual Summon Rate" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+15% Ritual Summon Rate"
+
+[node name="Heal Pentagram Amount" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("3_dwuvp")]
+unique_name_in_owner = true
+layout_mode = 2
+item_text = "+25 Pentagram Heal"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="Close Shop" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+focus_mode = 0
+text = "CLOSE SHOP"
+
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Blood Gained Per Second" to="." method="_on_blood_gained_per_second_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Enemy Blood Dropped" to="." method="_on_enemy_blood_dropped_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Summon more Devils" to="." method="_on_summon_more_devils_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Devil Damage" to="." method="_on_devil_damage_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Devil Heal" to="." method="_on_devil_heal_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Devil Speed" to="." method="_on_devil_speed_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Devil Attack Speed" to="." method="_on_devil_attack_speed_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Ritual Duration" to="." method="_on_ritual_duration_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Ritual Summon Rate" to="." method="_on_ritual_summon_rate_purchased_upgrade"]
+[connection signal="purchased_upgrade" from="MarginContainer/VBoxContainer/GridContainer/Heal Pentagram Amount" to="." method="_on_heal_pentagram_amount_purchased_upgrade"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/CenterContainer/Close Shop" to="." method="_on_close_shop_button_up"]

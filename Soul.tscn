@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1l2i2o0yq4hb"]
 
 [ext_resource type="Script" path="res://soul.gd" id="1_6ehve"]
-[ext_resource type="Texture2D" uid="uid://22nhewtd1cht" path="res://Art/Penta_Base_1.png" id="2_a1oya"]
+[ext_resource type="Texture2D" uid="uid://du3qatw6nltoq" path="res://Art/Soul.png" id="2_8kgep"]
 
 [node name="Soul" type="Node2D"]
 script = ExtResource("1_6ehve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_a1oya")
+z_index = -3
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_8kgep")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dylk07kji3jep"
+path="res://.godot/imported/die_2_nooo.mp3-41aa169917a99fa62b9abe5f3cb882fd.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/die_2_nooo.mp3"
+dest_files=["res://.godot/imported/die_2_nooo.mp3-41aa169917a99fa62b9abe5f3cb882fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dww0hns6m517v"
+path="res://.godot/imported/angel_summon_6.mp3-20a0515218f93dc7162c4543a50a9c15.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/angel_summon_6.mp3"
+dest_files=["res://.godot/imported/angel_summon_6.mp3-20a0515218f93dc7162c4543a50a9c15.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
